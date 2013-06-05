@@ -19,8 +19,7 @@ import javax.persistence.NamedQuery;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "Disciplina.findAll", query = "SELECT d FROM Disciplina d"),
-    @NamedQuery(name = "Disciplina.findById", query = "SELECT d FROM Disciplina d WHERE d.id=:id")
+    @NamedQuery(name = "Disciplina.findAll", query = "SELECT d FROM Disciplina d")
 })
 public class Disciplina implements Serializable {
 

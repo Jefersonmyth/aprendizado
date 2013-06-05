@@ -6,6 +6,7 @@ package view;
 
 import controller.CursoEJB;
 import helper.Mensagem;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -40,12 +41,16 @@ public class CursoMB {
 
     public void salvar() {
         cursoEJB.salvar(curso);
-        setCurso( new Curso() );
+        setCurso(new Curso());
         Mensagem.sucesso();
     }
-    
-    public void excluir(Long id){
+
+    public void excluir(Long id) {
         cursoEJB.excluir(id);
         Mensagem.sucesso();
+    }
+
+    public List<Curso> findAll() {
+        return cursoEJB.findAll();
     }
 }

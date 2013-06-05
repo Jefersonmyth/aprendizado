@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="index.xhtml">
+        <ui:define name="conteudo">
+            <h3 class="titulo">Disciplina</h3>
+
+            <h:form>
+                <p:growl id="mensagens" showDetail="true" />
+
+                <h:panelGrid columns="3">
+
+                    <h:outputLabel value="Descrição: " />
+                    <p:inputText value="#{disciplinaMB.disciplina.descricao}" />
+                    <h:outputLabel value="" />
+
+                    
+                    
+                    <h:outputLabel value="Curso " />
+                    <p:selectOneMenu value="#{disciplinaMB.disciplina.curso.id}}">
+                        <f:selectItems value="#{cursoMB.findAll()}" var="curso" itemLabel="#{curso.descricao}" itemValue="#{curso.id}" />
+                    </p:selectOneMenu>
+
+                    
+                    <p:commandButton value="Salvar" action="#{disciplinaMB.salvar()}" ajax="false" update="mensagens" />
+
+                </h:panelGrid>
+
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -4,6 +4,7 @@
  */
 package controller;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -26,6 +27,9 @@ public class CursoEJB {
     public void excluir(Long id) {
         Curso curso = em.find(Curso.class, id);
         em.remove(curso);
-
+    }
+    
+    public List<Curso> findAll(){
+        return em.createNamedQuery("Curso.findAll").getResultList();
     }
 }

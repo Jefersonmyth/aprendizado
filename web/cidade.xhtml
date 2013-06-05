@@ -22,6 +22,8 @@
                     <p:selectOneMenu value="#{cidadeMB.cidade.estado.id}">
                         <f:selectItems value="#{estadoMB.obterTodos()}" var="estado" itemLabel="#{estado.descricao}" itemValue="#{estado.id}" />
                     </p:selectOneMenu>
+                    
+                    
                     <p:commandButton value="Salvar" action="#{cidadeMB.salvar()}" ajax="false" update="mensagens" />
                 </h:panelGrid>
                 

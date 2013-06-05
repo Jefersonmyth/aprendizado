@@ -20,8 +20,8 @@ public class DisciplinaEJB {
     @PersistenceContext
     EntityManager em;
 
-    public Disciplina salvar(Disciplina disc) {
-        return em.merge(disc);
+    public void salvar(Disciplina disc) {
+        em.merge(disc);
     }
 
     public List<Disciplina> findAll() {

@@ -17,6 +17,7 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class Bairro implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,11 +25,11 @@ public class Bairro implements Serializable {
     private String descricao;
     @ManyToOne
     private Cidade cidade;
-    
+
     public Bairro() {
-        setCidade( new Cidade() );
+        setCidade(new Cidade());
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -77,5 +78,4 @@ public class Bairro implements Serializable {
     public String toString() {
         return "model.Bairro[ id=" + id + " ]";
     }
-    
 }

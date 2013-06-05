@@ -7,21 +7,22 @@ package view;
 import controller.DisciplinaEJB;
 import java.util.List;
 import javax.ejb.EJB;
-import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import model.Disciplina;
 
 /**
  *
  * @author jeferson
  */
-@Named(value = "disciplinaMB")
-@RequestScoped
+@ManagedBean
+@ViewScoped
 public class DisciplinaMB {
 
     public DisciplinaMB() {
+        disciplina = new Disciplina();
     }
-    private Disciplina disciplina = new Disciplina();
+    private Disciplina disciplina;
     @EJB
     DisciplinaEJB disciplinaEJB;
 
@@ -34,7 +35,8 @@ public class DisciplinaMB {
     }
 
     public void salvar() {
-        disciplina = disciplinaEJB.salvar(disciplina);
+        disciplinaEJB.salvar(disciplina);
+        System.out.println("Salvando disciplina " + disciplina.getDescricao() + " do curso " + disciplina.getCurso() + " com ID " + disciplina.getId() );
     }
 
     public List<Disciplina> findAll() {
