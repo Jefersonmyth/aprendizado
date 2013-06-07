@@ -31,6 +31,10 @@ public class Disciplina implements Serializable {
     @ManyToOne
     private Curso curso;
 
+    public Disciplina() {
+        curso = new Curso();
+    }
+
     public Curso getCurso() {
         return curso;
     }

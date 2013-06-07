@@ -21,8 +21,8 @@
 
                     
                     
-                    <h:outputLabel value="Curso " />
-                    <p:selectOneMenu value="#{disciplinaMB.disciplina.curso.id}}">
+                    <h:outputLabel value="Curso :" />
+                    <p:selectOneMenu value="#{disciplinaMB.disciplina.curso.id}">
                         <f:selectItems value="#{cursoMB.findAll()}" var="curso" itemLabel="#{curso.descricao}" itemValue="#{curso.id}" />
                     </p:selectOneMenu>
 
