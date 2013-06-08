@@ -19,17 +19,32 @@
                     <p:inputText value="#{disciplinaMB.disciplina.descricao}" />
                     <h:outputLabel value="" />
 
-                    
-                    
+
+
                     <h:outputLabel value="Curso :" />
                     <p:selectOneMenu value="#{disciplinaMB.disciplina.curso.id}">
                         <f:selectItems value="#{cursoMB.findAll()}" var="curso" itemLabel="#{curso.descricao}" itemValue="#{curso.id}" />
                     </p:selectOneMenu>
 
-                    
+
                     <p:commandButton value="Salvar" action="#{disciplinaMB.salvar()}" ajax="false" update="mensagens" />
 
                 </h:panelGrid>
+
+
+                <p:dataTable var="disciplina" value="#{disciplinaMB.findAll()}" paginator="true" rows="10" 
+                             rowsPerPageTemplate="5, 10, 15, 20" emptyMessage="Nenhuma disciplina está cadastrado.">
+
+                    <p:column headerText="Id">#{disciplina.id}</p:column>
+                    <p:column headerText="Disciplina">#{disciplina.descricao}</p:column>
+                    <p:column headerText="Curso">#{disciplina.curso.id}</p:column>
+                    <p:column headerText="..." style="width: 7.5%;">
+
+                        <p:commandButton icon="ui-icon-pencil" action="#{disciplinaMB.editar( disciplina )}" ajax="false"></p:commandButton>
+
+                    </p:column>
+                </p:dataTable>
+
 
 
             </h:form>

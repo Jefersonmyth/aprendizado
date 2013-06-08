@@ -19,6 +19,8 @@ import model.Disciplina;
 @ViewScoped
 public class DisciplinaMB {
 
+    long idCurso;
+    
     public DisciplinaMB() {
         disciplina = new Disciplina();
     }
@@ -36,10 +38,17 @@ public class DisciplinaMB {
 
     public void salvar() {
         disciplinaEJB.salvar(disciplina);
-        System.out.println("Salvando disciplina " + disciplina.getDescricao() + " do curso " + disciplina.getCurso() + " com ID " + disciplina.getId() );
+        setDisciplina(new Disciplina());
+        System.out.println("Salvando disciplina " + disciplina.getDescricao() + " do curso " + disciplina.getCurso().getDescricao() + " com ID " + disciplina.getId());
     }
 
     public List<Disciplina> findAll() {
         return disciplinaEJB.findAll();
+    }
+
+    public void editar(Disciplina disciplina) {
+        System.out.println("o curso antigo e " + disciplina.getCurso().getDescricao());
+        setDisciplina(disciplina);
+
     }
 }

@@ -21,6 +21,7 @@ public class DisciplinaEJB {
     EntityManager em;
 
     public void salvar(Disciplina disc) {
+        System.out.println("ID FDPP" + disc.getCurso().getId());
         em.merge(disc);
     }
 
